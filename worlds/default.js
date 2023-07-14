@@ -22,7 +22,7 @@ export function init(Constants) {
     Constants.ExcludedSystemBehaviorModules = ["avatarEvents.js"],
     Constants.UserBehaviorDirectory = "behaviors/default";
     Constants.UserBehaviorModules = [
-        "csmLights.js", "replaceWorld.js", "avatarEvents.js"
+        "csmLights.js", "replaceWorld.js", "avatarEvents.js", "button.js"
     ];
 
     Constants.DefaultCards = [
@@ -57,7 +57,7 @@ export function init(Constants) {
                 name: "Gallery Card",
                 behaviorModules: ["ReplaceWorld"],
                 replaceWorldTargetURL: "?world=second",
-                translation: [0, 1, -2],
+                translation: [1, 1, -5],
                 layers: ["pointer"],
                 type: "2d",
                 textureType: "image",
@@ -68,6 +68,13 @@ export function init(Constants) {
                 cornerRadius: 0.05,
                 depth: 0.05,
                 shadow: true,
+            }
+        },
+        {
+            card: {
+                behaviorModules: ["Button"],
+                type: "object",
+                translation: [-1, 1, -5],
             }
         },
     ];

@@ -1,6 +1,6 @@
 class AvatarActor {
     setup() {
-        this.listen("myValue", "myValue");
+        this.subscribe(this.id, "myValue", "myValue");
     }
 
     myValue(data) {
@@ -40,11 +40,6 @@ class AvatarPawn {
         this.addEventListener("keyUp", this.keyUp);
 
         this.subscribe(this.id, "3dModelLoaded", "modelLoaded");
-    }
-
-    modelLoaded() {
-        console.log("model loaded");
-        this.say("myValue", 42);
     }
 
     teardown() {

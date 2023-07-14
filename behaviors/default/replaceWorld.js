@@ -18,7 +18,10 @@ class ReplaceWorldPawn {
         canvas.style.transition = "opacity 1s";
         canvas.style.opacity = 0;
         const targetURL = this.resolveTargetURL();
-        setTimeout(() => Microverse.sendToShell("world-replace", { targetURL}), 1000);
+        let myAvatar = this.getMyAvatar();
+        let data = myAvatar.actor._cardData;
+        console.log("pointer down", data.foo);
+        setTimeout(() => Microverse.sendToShell("world-replace", {transferData: {transferAvatarData: true, cardData: data}, targetURL }), 1000);
     }
 
     resolveTargetURL() {
