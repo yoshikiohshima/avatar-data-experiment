@@ -125,6 +125,27 @@ export class WalkerPawn {
     }
 }
 
+class LoggerPawn {
+    setup() {
+        console.log("Logger.setup");
+        this.listen("_positionTo", "logPosition");
+        this.listen("_translateTo", "logTranslation");
+        this.listen("_rotateTo", "logRotation");
+    }
+
+    logTranslation(data) {
+        console.log("translation", );
+    }
+
+    logRotation(data) {
+        console.log("rotation", data);
+    }
+
+    logPosition(data) {
+        console.log("position", data);
+    }
+}
+
 export default {
     modules: [
         {
@@ -135,6 +156,10 @@ export default {
         {
             name: "BuiltinWalker",
             pawnBehaviors: [WalkerPawn],
+        },
+        {
+            name: "Logger",
+            pawnBehaviors: [LoggerPawn]
         }
     ]
 }

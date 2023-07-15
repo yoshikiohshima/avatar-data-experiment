@@ -3,12 +3,13 @@
 // info@croquet.io
 
 export function init(Constants) {
-    Constants.AvatarNames = ["newwhite"];
+    Constants.AvatarNames = [
 
     /* Alternatively, you can specify a card spec for an avatar,
        instead of a string for the partical file name, to create your own avatar.
        You can add behaviorModules here. Also, if the system detects a behavior module
        named AvatarEventHandler, that is automatically installed to the avatar.
+    */
         {
             type: "3d",
             modelType: "glb",
@@ -16,8 +17,10 @@ export function init(Constants) {
             dataLocation: "./assets/avatars/newwhite.zip",
             dataRotation: [0, Math.PI, 0],
             dataScale: [0.3, 0.3, 0.3],
+            behaviorModules: ["Logger"]
+
         }
-    */
+    ];
 
     Constants.ExcludedSystemBehaviorModules = ["avatarEvents.js"],
     Constants.UserBehaviorDirectory = "behaviors/default";
