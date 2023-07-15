@@ -127,22 +127,17 @@ export class WalkerPawn {
 
 class LoggerPawn {
     setup() {
-        console.log("Logger.setup");
-        this.listen("_positionTo", "logPosition");
-        this.listen("_translateTo", "logTranslation");
-        this.listen("_rotateTo", "logRotation");
+        let avatar = this.getMyAvatar();
+        this.subscribe(avatar.actor.id, "translateTo", "logTranslation");
+        this.subscribe(avatar.actor.id, "rotateTo", "logRotation");
     }
 
     logTranslation(data) {
-        console.log("translation", );
+        console.log("translation", data);
     }
 
     logRotation(data) {
         console.log("rotation", data);
-    }
-
-    logPosition(data) {
-        console.log("position", data);
     }
 }
 
